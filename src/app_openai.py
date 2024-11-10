@@ -4,7 +4,7 @@ import pandas as pd
 import psycopg2
 from streamlit_option_menu import option_menu
 import logging
-
+from api_keys import API_KEY_OPENAI as API_KEY
 
 # Parâmetros de conexão (fixos no código)
 server_host = "localhost"
@@ -13,7 +13,7 @@ database_name = "testeaabeck"
 DB_username = "abeck"
 password = "aaBeck"
 # Configuração da chave de API OpenAI
-openai.api_key = "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"
+openai.api_key = API_KEY
 #FUnção que gera o SQL com a openAI
 def gerar_sql(question, schema_info=""):
     try:

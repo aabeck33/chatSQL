@@ -3,6 +3,7 @@ import psycopg2
 import pandas as pd
 from vanna.remote import VannaDefault
 import logging
+from api_keys import API_KEY_VANNA as API_KEY
 
 # Definição dos parâmetros fixos de conexão
 DB_HOST = "localhost"
@@ -14,12 +15,9 @@ DB_PASSWORD = "aaBeck"
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger()
 
-# Chave da API Vanna
-VANNA_API_KEY = "a020d36d58a541dbbef6dd8ce47e57f1"
-vanna_model_name = "vanna_general"  # ou o nome do modelo apropriado para seu banco: vanna_general / chinook
-
 # Inicializa o Vanna
-vn = VannaDefault(model=vanna_model_name, api_key=VANNA_API_KEY)
+vanna_model_name = "vanna_general"  # ou o nome do modelo apropriado para seu banco: vanna_general / chinook
+vn = VannaDefault(model=vanna_model_name, api_key=API_KEY)
 
 # Função para conectar ao banco de dados PostgreSQL
 def connect_to_postgres():

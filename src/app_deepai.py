@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import psycopg2
+from api_keys import API_KEY_DEEPAI as API_KEY
 
 # Configurações para conexão com o banco de dados PostgreSQL
 DB_HOST = "localhost"
@@ -51,9 +52,6 @@ def executar_sql_no_postgres(sql, conn):
     except Exception as e:
         st.error(f"Erro ao executar a consulta SQL: {e}")
         return None
-
-# Configuração da chave de API do DeepAI
-API_KEY = "bbcb5e6a-e39f-470b-93b2-d5dd197ae815"  # Substitua pela sua chave da API DeepAI
 
 # Configuração da interface do Streamlit
 st.title("Consultas SQL usando Linguagem Natural")
